@@ -1,0 +1,39 @@
+.cardsWrapper {
+  padding: 25px;
+  text-align: center;
+}
+
+.title{
+  margin: 10px auto;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+}
+
+.card{
+  background-color: rgb(229, 231, 85);
+  color: #0f0f0f;
+  padding: 25px;
+  box-shadow: 3px 5px 10px #2f2f2f62;
+  width: 200px;
+}
+
+.cardTitle {
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0 0 15px 0;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0 0 15px 0;
+}
+
+.createdAt {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
