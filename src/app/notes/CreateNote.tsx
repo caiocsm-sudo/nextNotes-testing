@@ -4,11 +4,11 @@ import styles from "./CreateNote.module.css";
 
 import { useState } from "react";
 
+import { useRouter } from "next/router";
+
 export default function CreateNote() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
-  const handleSubmit = function () {};
 
   const createCardHandler = async function () {
     await fetch("http://127.0.0.1:8090/api/collections/tasks/records", {
@@ -24,6 +24,8 @@ export default function CreateNote() {
 
     setContent("");
     setTitle("");
+
+    useRouter().reload();
   };
 
   return (

@@ -6,12 +6,11 @@ import CreateNote from "./CreateNote";
 const apiPocketbaseServer = "http://127.0.0.1:8090";
 
 async function getNotes() {
-  // pagination pocketbase = page=num&perPage=num
-
   const pb = new PocketBase(apiPocketbaseServer);
-  const result = await pb.collection('tasks').getList();
+  const result = await pb.collection('tasks').getList(1, 45);
 
-  console.log(result);
+  // const res = await fetch(`${apiPocketbaseServer}/api/collections/tasks/records`);
+  // const data = await res.json();
 
   return result?.items as any[];
 }
