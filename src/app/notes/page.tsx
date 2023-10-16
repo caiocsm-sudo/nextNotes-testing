@@ -1,23 +1,19 @@
 import Link from "next/link";
 import styles from "./Notes.module.css";
 import PocketBase from 'pocketbase';
+import CreateNote from "./CreateNote";
 
 const apiPocketbaseServer = "http://127.0.0.1:8090";
 
 async function getNotes() {
   // pagination pocketbase = page=num&perPage=num
 
-  const db = new PocketBase(apiPocketbaseServer);
-  const altData = await db.collection('notes').getList();
+  const pb = new PocketBase(apiPocketbaseServer);
+  const result = await pb.collection('tasks').getList();
 
-  console.log(altData);
+  console.log(result);
 
-  const res = await fetch(
-    `${apiPocketbaseServer}/api/collections/tasks/records`
-  );
-  const data = await res.json();
-
-  return data?.items as any[];
+  return result?.items as any[];
 }
 
 const Note = ({ note }: any) => {
@@ -43,6 +39,8 @@ export default async function NotesPage() {
           return <Note key={note.id} note={note} />;
         })}
       </div>
+
+      <CreateNote />
     </div>
   );
 }
